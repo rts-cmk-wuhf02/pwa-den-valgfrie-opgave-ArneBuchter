@@ -1,0 +1,18 @@
+.header{
+    &__logo{
+        text-align: center;
+        font-size: 3em;
+        margin: 0.5em 0 0.2em 0;
+        color: darkblue;
+    }
+    
+    &__links{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        color: darkblue;
+    }
+}
+
