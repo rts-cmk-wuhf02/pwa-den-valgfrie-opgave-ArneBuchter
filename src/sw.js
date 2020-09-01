@@ -2,7 +2,10 @@ let cacheName = "static-cache-v5"
 let fileToCache = [
     '/',
     '/index.html',
-    '/assets/css/index.css',
+	'/assets/css/index.css',
+	'/assets/javaScript/app.js',
+	'/assets/javaScript/index.js',
+	'/assets/javaScript/app.js',
 	'/projects/index.html',
 	'/Timeline/index.html',
     '/offline.html'
