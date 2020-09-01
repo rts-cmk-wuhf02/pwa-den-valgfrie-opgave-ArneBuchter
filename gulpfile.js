@@ -74,15 +74,16 @@ function watchScss() {
 }
 
 function javaScript(done){
-    gulp.src('./src/javaScript/**/*.js')
+    console.log('js kører')
+    gulp.src('./src/javascript/**/*.js')
     .pipe(babel({ presets: ['@babel/env']}))
-    .pipe(gulp.dest('./dist/assets/javaScript'))
+    .pipe(gulp.dest('./dist/assets/javascript'))
     .pipe(connect.reload());
     done();
 }
 
 function watchJavaSript() {
-    gulp.watch('./src/javaScript/**/*.js', { ignoreInitial: false }, javaScript);
+    gulp.watch('./src/javascript/**/*.js', { ignoreInitial: false }, javaScript);
 }
 
 function serviceWorker(done){
