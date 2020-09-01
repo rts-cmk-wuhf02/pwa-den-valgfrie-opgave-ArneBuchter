@@ -1,0 +1,22 @@
+{
+    "name": "Time Stamp",
+    "short_name": "timestamp",
+    "start_url": "index.html",
+    "background_color": "white",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/assets/images/mani/time192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/images/mani/time.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "theme_color": "white",
+    "orientation": "portrait-primary"
+}

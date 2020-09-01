@@ -1,0 +1,12 @@
+let apiKey = 'AIzaSyCkAl12z0asdcpuiEqYXRbRyk5lo59AUdE';
+
+let app = initializeApp({
+    apiKey: `<${apiKey}>`,
+    authDomain: '<timestamp-d535c.web.app>',
+    databaseURL: '<https://timestamp-d535c.firebaseio.com/>',
+    projectId: '<timestamp-d535c>',
+    storageBucket: '<gs://timestamp-d535c.appspot.com>',
+    messagingSenderId: '<799941260904>'
+  });
+
+  console.log(app)

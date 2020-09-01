@@ -1,17 +1,61 @@
 .header{
+    border-bottom: 1px solid darkblue;
+    padding: 0 0 1em 0;
     &__logo{
         text-align: center;
         font-size: 3em;
         margin: 0.5em 0 0.2em 0;
         color: darkblue;
     }
+    &__link{
+        text-decoration: none;
+        color: darkblue;
+    }
     
     &__links{
         width: 90%;
         margin: auto;
+        padding-inline-start: 0;
         display: flex;
         justify-content: space-between;
         list-style: none;
+        color: darkblue;
+    }
+}
+
+.main{
+    margin: 1em 0;
+    &__button-wrapper{
+        display: flex;
+        justify-content: center;
+        margin: 2em 0;
+    }
+    &__button{
+        width: 20vmin;
+        height: 20vmin;
+        border-radius: 50%;
+        border: 3px solid darkblue;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        &_start{
+            background-color: lightgreen;
+        }
+
+        &_stop{
+            background-color: red;
+        }
+    }
+    &__ur-wrapper{
+        display: flex;
+        justify-content: center;
+        margin: 2em 0;
+    }
+
+    &__ur{
+        font-size: 3em;
+        font-weight: bold;
         color: darkblue;
     }
 }
