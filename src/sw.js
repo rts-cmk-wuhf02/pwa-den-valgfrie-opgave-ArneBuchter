@@ -1,4 +1,4 @@
-let cacheName = "static-cache-v6"
+let cacheName = "static-cache-v10"
 let fileToCache = [
     '/',
     '/index.html',

@@ -1,19 +1,7 @@
-/* let apiKey = 'AIzaSyCkAl12z0asdcpuiEqYXRbRyk5lo59AUdE';
+const db = firebase.firestore();
 
-let app = initializeApp({
-    apiKey: `<${apiKey}>`,
-    authDomain: '<timestamp-d535c.web.app>',
-    databaseURL: '<https://timestamp-d535c.firebaseio.com/>',
-    projectId: '<timestamp-d535c>',
-    storageBucket: '<gs://timestamp-d535c.appspot.com>',
-    messagingSenderId: '<799941260904>'
-  }); */
-  
-fetch(`https://timestamp-d535c.firebaseio.com/timereg.json `,{
-  'method': 'GET'
-
-})
-.then(response => response.json())
-.then(data => {
-  console.log(data)
+db.collection("timereg").get().then(function(querySnapshot) {
+  querySnapshot.forEach(function(doc){
+    console.log(doc)
+  })
 })
