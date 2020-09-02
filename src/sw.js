@@ -1,4 +1,4 @@
-let cacheName = "static-cache-v10"
+let cacheName = "static-cache-v6"
 let fileToCache = [
     '/',
     '/index.html',
@@ -34,14 +34,14 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', function(event) {
 	// console.log('fetch', event);
 
-	 event.respondWith(
+	event.respondWith(
 		caches.open(cacheName).then(function(cache) {
 			return cache.match(event.request)
 				.then(function(response) {
 					return (
                         response || fetch(event.request)
-                        .then(function(response) {
-							cache.put(event.request, response.clone());
+						.then(function(response) {
+ 							cache.put(event.request, response.clone());
 							return response;
 						})
 					);
