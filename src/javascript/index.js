@@ -9,7 +9,7 @@ let app = initializeApp({
     messagingSenderId: '<799941260904>'
   }); */
   
-fetch(`https://timestamp-d535c.firebaseio.com.json `,{
+fetch(`https://timestamp-d535c.firebaseio.com/timereg.json `,{
   'method': 'GET'
 
 })
