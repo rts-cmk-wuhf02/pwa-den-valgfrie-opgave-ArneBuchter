@@ -1,4 +1,4 @@
-let apiKey = 'AIzaSyCkAl12z0asdcpuiEqYXRbRyk5lo59AUdE';
+/* let apiKey = 'AIzaSyCkAl12z0asdcpuiEqYXRbRyk5lo59AUdE';
 
 let app = initializeApp({
     apiKey: `<${apiKey}>`,
@@ -7,6 +7,13 @@ let app = initializeApp({
     projectId: '<timestamp-d535c>',
     storageBucket: '<gs://timestamp-d535c.appspot.com>',
     messagingSenderId: '<799941260904>'
-  });
+  }); */
+  
+fetch(`https://timestamp-d535c.firebaseio.com.json `,{
+  'method': 'GET'
 
-  console.log(app)
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data)
+})
