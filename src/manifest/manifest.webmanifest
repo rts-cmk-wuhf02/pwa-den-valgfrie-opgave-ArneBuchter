@@ -2,7 +2,7 @@
     "name": "Time Stamp",
     "short_name": "timestamp",
     "start_url": "index.html",
-    "background_color": "white",
+    "background_color": "#fff",
     "display": "standalone",
     "icons": [
         {
@@ -17,6 +17,6 @@
             "sizes": "512x512"
         }
     ],
-    "theme_color": "white",
+    "theme_color": "#fff",
     "orientation": "portrait-primary"
 }

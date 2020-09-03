@@ -1,4 +1,28 @@
 <% include ../partials/head %>
 <% include ../partials/header %>
 
+<main class="timelist">
+    <h1 class="timelist__projectname">Timelist</h1>
+    <section class="timelist__times">
+
+    </section>
+    <button class="download-app hidden">download app</button>
+</main>
+
+<template class="timelist__template">
+    <section class="timelist__line">
+        <p class="timelist__tid"></p>
+        <p class="timelist__dato"></p>
+        <div class="timelist__regtid">
+            <p class="timelist__hours"></p>
+            <p class="">:</p>
+            <p class="timelist__minutes"></p>
+            <p class="">:</p>
+            <p class="timelist__seconds"></p>
+        </div>        
+    </section>
+</template>
+
+<script src="/assets/javaScript/timelist.js"></script>
+<script src="/assets/javaScript/app.js"></script>
 <% include ../partials/afterfooter %>

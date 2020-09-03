@@ -1,8 +1,15 @@
 let startStop = document.querySelector('.main__button');
 let time;
-let minutesLabel = document.getElementById("minutes");
-let secondsLabel = document.getElementById("seconds");
+let minutesLabel = document.querySelector("#minutes");
+let secondsLabel = document.querySelector("#seconds");
+let hourslabel = document.querySelector("#hours");
+const db = firebase.firestore();
+const dokument = db.collection('timereg');
+let doclength = [];
+let newDoc;
+
 startStop.addEventListener('click', () => {
+  
   
   if(startStop.classList.contains('main__button_start')){
 
@@ -16,6 +23,7 @@ startStop.addEventListener('click', () => {
       ++totalSeconds;
       secondsLabel.innerHTML = pad(totalSeconds % 60);
       minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+      hourslabel.innerHTML = pad(parseInt(totalSeconds / 3600));
     }
 
     function pad(val) {
@@ -26,8 +34,15 @@ startStop.addEventListener('click', () => {
         return valString;
       }
     }
+    dokument.get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc){
+        console.log(doc.id)
+        doclength.push(doc.id)
+      newDoc = doclength.length+1
+      console.log(newDoc)
+      })
+    })
   }
-
   else{
     const pElement = document.createElement('p');
     let list = document.querySelector('.main__stamp');
@@ -37,11 +52,48 @@ startStop.addEventListener('click', () => {
     let day = d.getDate();
     let month = d.getMonth()+1;
     let year = d.getFullYear();
+    let tidHour = d.getUTCHours()+2;
+    let tidMinutes = d.getUTCMinutes();
+    let tidSeconds = d.getUTCSeconds();
+    let tid = tidHour+ ":" +tidMinutes+ ":" +tidSeconds;
     let dato = day+"-"+month+"-"+year;
     startStop.classList.replace('main__button_stop', 'main__button_start');
     startStop.innerText = 'Start';
     
-    timestamp.push({minutes: minutesLabel.innerText, seconds: secondsLabel.innerText, dato: dato });
+    timestamp.push({hours: hourslabel.innerText, minutes: minutesLabel.innerText, seconds: secondsLabel.innerText, dato: dato, tid: tid });
+
+    if(newDoc != undefined){
+      dokument.doc(newDoc.toString()).set({
+      hours: `${timestamp[0].hours}`,
+      minutes: `${timestamp[0].minutes}`,
+      seconds: `${timestamp[0].seconds}`,
+      dato: `${timestamp[0].dato}`,
+      tid: `${timestamp[0].tid}`, 
+      })
+      .then(function() {
+        console.log("Document successfully written!");
+      })
+      .catch(function(error) {
+        console.error("Error writing document: ", error);
+      });
+    }else{
+      dokument.doc('1').set({
+        hours: `${timestamp[0].hours}`,
+        minutes: `${timestamp[0].minutes}`,
+        seconds: `${timestamp[0].seconds}`,
+        dato: `${timestamp[0].dato}`,
+        tid: `${timestamp[0].tid}`, 
+        })
+        .then(function() {
+          console.log("Document successfully written!");
+        })
+        .catch(function(error) {
+          console.error("Error writing document: ", error);
+        });
+    } 
+
+
+
     pElement.textContent = timestamp[0].minutes+":"+timestamp[0].seconds+" "+timestamp[0].dato;
     list.appendChild(pElement)
     console.log(timestamp)

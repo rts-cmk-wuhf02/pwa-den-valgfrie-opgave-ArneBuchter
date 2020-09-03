@@ -1,10 +1,10 @@
-let cacheName = "static-cache-v6"
+let cacheName = "static-cache-v15"
 let fileToCache = [
     '/',
     '/index.html',
 	'/assets/css/index.css',
 	'/assets/javaScript/app.js',
-	'/assets/javaScript/index.js',
+	'/assets/javaScript/timelist.js',
 	'/assets/javaScript/app.js',
 	'/projects/index.html',
 	'/Timeline/index.html',
@@ -38,9 +38,11 @@ self.addEventListener('fetch', function(event) {
 		caches.open(cacheName).then(function(cache) {
 			return cache.match(event.request)
 				.then(function(response) {
+
 					return (
                         response || fetch(event.request)
 						.then(function(response) {
+							
  							cache.put(event.request, response.clone());
 							return response;
 						})
