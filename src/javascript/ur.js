@@ -44,9 +44,6 @@ startStop.addEventListener('click', () => {
     })
   }
   else{
-    const pElement = document.createElement('p');
-    let list = document.querySelector('.main__stamp');
-
     let timestamp = []
     let d = new Date;
     let day = d.getDate();
@@ -92,14 +89,10 @@ startStop.addEventListener('click', () => {
         });
     } 
 
-
-
-    pElement.textContent = timestamp[0].minutes+":"+timestamp[0].seconds+" "+timestamp[0].dato;
-    list.appendChild(pElement)
-    console.log(timestamp)
     clearInterval(time);
     secondsLabel.innerHTML = '00'
     minutesLabel.innerHTML = '00'
+    hourslabel.innerHTML = '00'
 
   } 
 })

@@ -10,6 +10,7 @@ if('serviceWorker' in navigator) {
     window.addEventListener('beforeinstallprompt', function (e) {
         e.preventDefault();
         deferredPrompt = e;
+        console.log(e)
         document.querySelector('.hidden').classList.toggle('hidden', false);
     });
 
@@ -20,8 +21,10 @@ if('serviceWorker' in navigator) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
           if (choiceResult.outcome === 'accepted') {
+            document.querySelector('.download-app').classList.add('hidden');
             console.log('User accepted the install prompt');
           } else {
+            document.querySelector('.download-app').classList.add('hidden');
             console.log('User dismissed the install prompt');
           }
         });
@@ -36,7 +39,7 @@ Notification.requestPermission(function(status) {
         navigator.serviceWorker.getRegistration()
         .then(function(reg) {
             let options = {
-                body: "",
+                body: "Timestamp",
                 icon: "/assets/images/time.png" ,
                 data: {
                     dateOfArrival : Date.now(),
