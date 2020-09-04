@@ -10,7 +10,6 @@ if('serviceWorker' in navigator) {
     window.addEventListener('beforeinstallprompt', function (e) {
         e.preventDefault();
         deferredPrompt = e;
-        console.log(e)
         document.querySelector('.hidden').classList.toggle('hidden', false);
     });
 

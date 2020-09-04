@@ -82,10 +82,22 @@
     &__line{
         display: flex;
         justify-content: space-between;
-        margin: 0.5rem;
+        margin: 0 0.5rem;
     }
+
+    &__tid, &__dato, &__hours, &__minutes, &__seconds, &__kolon{
+        margin-block-start: 5px;
+        margin-block-end: 5px;
+    }
+
     &__regtid{
         display: flex;
+    }
+
+    &__total{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0.5rem;
     }
 }
 

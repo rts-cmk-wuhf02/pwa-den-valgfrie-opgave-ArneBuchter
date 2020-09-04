@@ -1,5 +1,6 @@
 let startStop = document.querySelector('.main__button');
 let time;
+let totalSeconds;
 let minutesLabel = document.querySelector("#minutes");
 let secondsLabel = document.querySelector("#seconds");
 let hourslabel = document.querySelector("#hours");
@@ -16,7 +17,7 @@ startStop.addEventListener('click', () => {
     startStop.classList.replace('main__button_start', 'main__button_stop');
     startStop.innerText = 'Stop';
 
-    let totalSeconds = 0;
+    totalSeconds = 0;
     time = setInterval(setTime, 1000);
 
     function setTime() {
@@ -58,7 +59,7 @@ startStop.addEventListener('click', () => {
     startStop.innerText = 'Start';
     
     timestamp.push({hours: hourslabel.innerText, minutes: minutesLabel.innerText, seconds: secondsLabel.innerText, dato: dato, tid: tid });
-
+  
     if(newDoc != undefined){
       dokument.doc(newDoc.toString()).set({
       hours: `${timestamp[0].hours}`,
@@ -66,6 +67,7 @@ startStop.addEventListener('click', () => {
       seconds: `${timestamp[0].seconds}`,
       dato: `${timestamp[0].dato}`,
       tid: `${timestamp[0].tid}`, 
+      totaltid: `${totalSeconds}`, 
       })
       .then(function() {
         console.log("Document successfully written!");
@@ -80,6 +82,7 @@ startStop.addEventListener('click', () => {
         seconds: `${timestamp[0].seconds}`,
         dato: `${timestamp[0].dato}`,
         tid: `${timestamp[0].tid}`, 
+        totaltid: `${totalSeconds}`, 
         })
         .then(function() {
           console.log("Document successfully written!");
