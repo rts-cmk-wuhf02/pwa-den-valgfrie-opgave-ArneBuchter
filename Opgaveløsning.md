@@ -23,3 +23,7 @@
 
             ** Userflow
             Bruger kan starte og stoppe uret tiden registreres når uret stoppes og postes til firebase, når bruger er online.
+
+            ** Link
+
+            https://compassionate-austin-a6d075.netlify.app/
